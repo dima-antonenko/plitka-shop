@@ -1,14 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Plitka</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<!doctype html>
+<!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+	<head>
+		<title>Flatastic - Home</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<!--meta info-->
+		<meta name="author" content="">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link rel="icon" type="image/ico" href="/images/fav.ico">
+		<!--stylesheet include-->
+		<link rel="stylesheet" type="text/css" media="all" href="/css/jackbox.min.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/css/settings.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/css/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/css/owl.transitions.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.custom-scrollbar.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/css/style.css">
+		<!--font include-->
+		<link href="/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<!--boxed layout-->
+		<div class="wide_layout relative w_xs_auto">
+			<%= render '/layouts/header' %>
+			<%= yield %>
+			<%= render '/layouts/footer' %>
+		</div>
+	
+		<!--scripts include-->
+		<script src="/js/jquery-2.1.0.min.js"></script>
+		<script src="/js/retina.js"></script>
+		<script src="/js/jquery.themepunch.plugins.min.js"></script>
+		<script src="/js/jquery.themepunch.revolution.min.js"></script>
+		<script src="/js/jackbox-packed.min.js"></script>
+		<script src="/js/waypoints.min.js"></script>
+		<script src="/js/owl.carousel.min.js"></script>
+		<script src="/js/jquery.tweet.min.js"></script>
+		<script src="/js/jquery.custom-scrollbar.js"></script>
+		<script src="/js/scripts.js"></script>
+	</body>
 </html>
