@@ -11,6 +11,7 @@
 							<h2 class="tt_uppercase color_dark m_bottom_25">Women</h2>
 							<img class="r_corners m_bottom_40" src="/images/category_img_1.jpg" alt="">
 
+							<% @collection.products.each do |product| %>
 							<!--products-->
 							<section class="products_container category_grid clearfix m_bottom_15">
 								<!--product item-->
@@ -23,7 +24,7 @@
 										</a>
 										<!--description and price of product-->
 										<figcaption>
-											<h5 class="m_bottom_10"><a href="#" class="color_dark">Eget elementum vel</a></h5>
+											<h5 class="m_bottom_10"><a href="#" class="color_dark"><%= product.name %></a></h5>
 											<!--rating-->
 											<ul class="horizontal_list d_inline_b m_bottom_10 clearfix rating_list type_2 tr_all_hover">
 												<li class="active">
@@ -48,7 +49,10 @@
 												</li>
 											</ul>
 											<p class="scheme_color f_size_large m_bottom_15">$102.00</p>	
-											<button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15">Add to Cart</button>
+											<!--<button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0 m_bottom_15">Add to Cart</button>-->
+											<%= button_to 'Add to Cart', line_items_path(product_id: product),
+												remote: true
+											 %>
 											<div class="clearfix m_bottom_5">
 												<ul class="horizontal_list d_inline_b l_width_divider">
 													<li class="m_right_15 f_md_none m_md_right_0"><a href="#" class="color_dark">Add to Wishlist</a></li>
@@ -59,6 +63,7 @@
 									</figure>
 								</div>
 							</section>
+							<% end %>
 							<hr class="m_bottom_10 divider_type_3">
 							<div class="row clearfix m_bottom_15 m_xs_bottom_30">
 								<div class="col-lg-7 col-md-7 col-sm-8 m_xs_bottom_10">

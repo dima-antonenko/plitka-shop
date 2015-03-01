@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+	<%= render(@cart.line_items)  %>
+<br />
+<%= number_to_currency(@cart.total_price) %>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= button_to 'Очистить корзину', @cart, method: :delete, data: { confirm: 'Удалить все товары из козины ?'}
+
+%>
+<%= button_to "Перейти к оплате", new_order_path, method: :get %>

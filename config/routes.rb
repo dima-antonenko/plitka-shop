@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :orders
+
+  resources :line_items
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :carts
 
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
   end
 
 
-  match '/parser', to: 'parser#index', via: 'get'
+  match '/import', to: 'import#index', via: 'get'
   root 'static#home'
 
 
