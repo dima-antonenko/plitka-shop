@@ -9,25 +9,23 @@
 					<div class="row clearfix">
 						<!--left content column-->
 						<section class="col-lg-12 col-md-12 col-sm-12">
-							<h2 class="tt_uppercase color_dark m_bottom_25">Women</h2>
+							<h2 class="tt_uppercase color_dark m_bottom_25"><%= @category.name %></h2>
 							<!--sort-->
 							<!--products-->
-							<section class="products_container category_grid clearfix m_bottom_15">
-								<!--product item-->
-								<div class="product_item hit w_xs_full">
-									<figure class="r_corners photoframe type_2 t_align_c tr_all_hover shadow relative">
-										<!--product preview-->
-										<a href="#" class="d_block relative wrapper pp_wrap m_bottom_15">
-											<img src="/images/product_img_1.jpg" class="tr_all_hover" alt="">
-											
-										</a>
-										<!--description and price of product-->
-										<figcaption>
-											<h5 class="m_bottom_10"><a href="#" class="color_dark">Eget elementum vel</a></h5>
-										</figcaption>
-									</figure>
-								</div>
-							</section>
+														<!--categories nav-->
+							<nav class="m_bottom_40">
+								<ul class="horizontal_list clearfix categories_nav_list m_xs_right_0 t_mxs_align_c">
+									<% @category.collections.each do |collection| %>
+										<li class="m_right_15 f_mxs_none w_mxs_auto d_mxs_inline_b m_mxs_bottom_20">
+											<%= link_to collection.name, category_collection_path(@category , collection), class: "_block photoframe tr_all_hover shadow color_dark r_corners" %>
+												<span class="d_block wrapper">
+													<img class="tr_all_long_hover" src="/images/category_img_2.jpg" alt="">
+												</span>
+											</a>
+										</li>
+									<% end %>
+								</ul>
+							</nav>	
 							<hr class="m_bottom_10 divider_type_3">
 							<div class="row clearfix m_bottom_15 m_xs_bottom_30">
 								<div class="col-lg-7 col-md-7 col-sm-8 m_xs_bottom_10">

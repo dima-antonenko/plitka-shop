@@ -1,9 +1,1 @@
-<%= @colletions.count %>
-	<% 
-	@colletions.each do |colletion|	
-			Collection.create(id: colletion["id"], category_id: 1, name: colletion["name"], description: " ", 
-			interior_list: colletion["interior_list"].to_s, brand: colletion["brand"],
-			country: colletion["country"], size: colletion["size"], meta_title: colletion["name"])
-		end
-
-		%>
+<%= 'this is view of import' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301220823) do
+ActiveRecord::Schema.define(version: 20150302154140) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 20150301220823) do
     t.string   "meta_keywords"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "ballance"
+    t.decimal  "ballance_count"
+    t.string   "category"
+    t.string   "design_value"
+    t.string   "frost_hardiness"
+    t.string   "rectified"
   end
 
   add_index "products", ["code"], name: "index_products_on_code"
