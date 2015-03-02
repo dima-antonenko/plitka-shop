@@ -6,12 +6,24 @@
 			<div class="page_content_offset">
 				<div class="container">
 					<div class="row clearfix">
+						
+						<!--right column-->
+						<%= render 'sidebar' %>
+
 						<!--left content column-->
 						<section class="col-lg-9 col-md-9 col-sm-9">
 							<h2 class="tt_uppercase color_dark m_bottom_25"><%= @collection.name %></h2>
-							<img class="r_corners m_bottom_40" src="/images/category_img_1.jpg" alt="">
+							<div class="clearfix m_bottom_40">
+									<div class="photoframe f_left shadow wrapper m_right_30 m_sm_bottom_5 m_sm_right_20 m_xs_bottom_15 f_xs_none d_xs_inline_b">
+										<img class="tr_all_long_hover" src="/images/category_img_7.jpg" alt="">
+									</div>
+									<p class="m_bottom_10">Бренд: <%= @collection.brand %> </p>
+									<p class="m_bottom_10">Страна: <%= @collection.country %> </p>
+									<p class="m_bottom_10">Размер: <%= @collection.size %> </p>
+							</div>
 
 							
+							<hr />
 							<!--products-->
 							<section class="products_container category_grid clearfix m_bottom_15">
 								<!--product item-->
@@ -42,8 +54,7 @@
 							<hr class="m_bottom_10 divider_type_3">
 							
 						</section>
-						<!--right column-->
-						<%= render 'sidebar' %>
+						
 					</div>
 				</div>
 			</div>
