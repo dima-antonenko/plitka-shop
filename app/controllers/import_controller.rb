@@ -144,8 +144,16 @@ class ImportController < ApplicationController
 	end
 
 	def show
-		@products_in_base  = Product.all
+
 		@collections_in_base  = Collection.all
+
+		@collections_in_base.each do |collection|
+			
+			if collection.products.count > 0  
+				Collection.update(collection.id, :category_id => collection.products.first.category )
+			end
+			 
+ 		end 
 
 	end
 
