@@ -1,5 +1,7 @@
-	<%= render(@cart.line_items)  %>
-<br />
+<% @cart.line_items.each do |item|  %>
+	<%= item.product.name %>
+	<%= item.quantity %>
+<% end %>
 <%= number_to_currency(@cart.total_price) %>
 
 <%= button_to 'Очистить корзину', @cart, method: :delete, data: { confirm: 'Удалить все товары из козины ?'}

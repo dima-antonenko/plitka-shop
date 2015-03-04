@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
 
   match '/import', to: 'import#index', via: 'get'
+  match '/import/show', to: 'import#show', via: 'get'
   root 'static#home'
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302154140) do
+ActiveRecord::Schema.define(version: 20150303181622) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20150302154140) do
     t.string   "meta_keywords"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.boolean  "to_bathroom"
+    t.boolean  "to_kitchen"
+    t.boolean  "to_corridor"
+    t.boolean  "to_living"
+    t.boolean  "to_fasad"
+    t.boolean  "to_floor"
+    t.boolean  "to_construction"
+    t.boolean  "to_public"
   end
 
   add_index "collections", ["category_id"], name: "index_collections_on_category_id"
@@ -99,6 +107,14 @@ ActiveRecord::Schema.define(version: 20150302154140) do
     t.string   "design_value"
     t.string   "frost_hardiness"
     t.string   "rectified"
+    t.boolean  "to_bathroom"
+    t.boolean  "to_kitchen"
+    t.boolean  "to_corridor"
+    t.boolean  "to_living"
+    t.boolean  "to_fasad"
+    t.boolean  "to_floor"
+    t.boolean  "to_construction"
+    t.boolean  "to_public"
   end
 
   add_index "products", ["code"], name: "index_products_on_code"
