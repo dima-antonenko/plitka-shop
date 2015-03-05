@@ -54,19 +54,33 @@ class ImportController < ApplicationController
 
 				 if application_list.include?("Для ванной") == true
 				 	to_bathroom = true
-				 elsif application_list.include?("Для кухни") == true
+				 end
+
+				 if application_list.include?("Для кухни") == true
 				 	to_kitchen = true
-				 elsif application_list.include?("Для коридора") == true
-				 	to_corridor = true	
-				 elsif application_list.include?("Для гостиной") == true
+				 end
+
+				 if application_list.include?("Для коридора") == true
+				 	to_corridor = true
+				 end
+
+				 if application_list.include?("Для гостиной") == true
 				 	to_living = true
-				 elsif application_list.include?("Для фасада") == true
+				 end
+
+				 if application_list.include?("Для фасада") == true
 				 	to_fasad = true
-				 elsif application_list.include?("Для пола") == true
+				 end
+
+				 if application_list.include?("Для пола") == true
 				 	to_floor = true
-				 elsif application_list.include?("Строительная плитка") == true
+				 end
+
+				 if application_list.include?("Строительная плитка") == true
 				 	to_construction = true
-				 elsif application_list.include?("Общественные помещения") == true
+				 end
+
+				 if application_list.include?("Общественные помещения") == true
 				 	to_public = true
 				 end
 
@@ -74,22 +88,34 @@ class ImportController < ApplicationController
 
 				 if application_list == "Для ванной" 				 	
 				 	to_bathroom = true
-				 elsif application_list == "Для кухни"
+				 end
+
+				 if application_list == "Для кухни"
 				 	to_kitchen = true
-				 elsif application_list == "Для коридора"
-				 	to_corridor = true	
-				 elsif application_list == "Для гостиной"
+				 end
+
+				 if application_list == "Для коридора"
+				 	to_corridor = true
+				 end
+
+				 if application_list == "Для гостиной"
 				 	to_living = true
-				 elsif application_list == "Для фасада"
+				 end
+
+				 if application_list == "Для фасада"
 				 	to_fasad = true
-				 elsif application_list == "Для пола"
+				 end
+
+				 if application_list == "Для пола"
 				 	to_floor = true
-				 elsif application_list == "Строительная плитка"
+				 end
+
+				 if application_list == "Строительная плитка"
 				 	to_construction = true
-				 elsif application_list == "Общественные помещения"
+				 end
+
+				 if application_list == "Общественные помещения"
 				 	to_public = true
-				 else 
-				 	to_kitchen = true
 				 end
 
 			 end
@@ -141,9 +167,7 @@ class ImportController < ApplicationController
 							  size: colletion["size"],
 							  meta_title: colletion["name"])
 		end
-	end
 
-	def show
 
 		@collections_in_base  = Collection.all
 
@@ -152,10 +176,17 @@ class ImportController < ApplicationController
 			if collection.products.count > 0  
 				Collection.update(collection.id, :category_id => collection.products.first.category )
 			end
-			 
+
  		end 
+
+
 
 	end
 
+	def show
+
+		
+
+	end
 
 end
