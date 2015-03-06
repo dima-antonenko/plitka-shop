@@ -3,6 +3,9 @@
 					float: left;
 				}
 			</style>
+			<% provide(:title,   	 @collection.meta_title) %>
+			<% provide(:description, @collection.meta_description) %>
+			<% provide(:keywords, 	 @collection.meta_keywords) %>
 			<div class="page_content_offset">
 				<div class="container">
 					<div class="row clearfix">

@@ -2,13 +2,14 @@
 <!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 	<head>
-		<title>Flatastic - Home</title>
+		<title><%= yield(:title) %></title>
+		<meta name="keywords" content="<%= yield(:description) %>">
+		<meta name="description" content="<%= yield(:keywords) %>">
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<!--meta info-->
 		<meta name="author" content="">
-		<meta name="keywords" content="">
-		<meta name="description" content="">
 		<link rel="icon" type="image/ico" href="/images/fav.ico">
 		<!--stylesheet include-->
 		<link rel="stylesheet" type="text/css" media="all" href="/css/jackbox.min.css">
