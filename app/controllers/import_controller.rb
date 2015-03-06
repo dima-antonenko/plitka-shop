@@ -156,17 +156,24 @@ class ImportController < ApplicationController
 							to_public: to_public ) 
 		end
 
-		@colletions.each do |colletion|	
-			Collection.create(id: colletion["id"],
-							  name: colletion["name"],
-							  description: " ", 
-							  interior_list: colletion["interior_list"].to_s,
-							  brand: colletion["brand"],
-							  country: colletion["country"],
-							  size: colletion["size"],
-							  meta_title: colletion["name"])
+		@colletions.each do |collection|	
 
-			Connection.create(category_id: colletion["category"], collection_id: collection["id"])
+			if collection["interior_list"]["interior"].class == Array 
+				interior_list = collection["interior_list"]["interior"].join(",")
+			else 
+				interior_list = collection["interior_list"]["interior"] 
+			end	
+
+			Collection.create(id: collection["id"],
+							  name: collection["name"],
+							  description: " ", 
+							  interior_list: interior_list,
+							  brand: collection["brand"],
+							  country: collection["country"],
+							  size: collection["size"],
+							  meta_title: collection["name"])
+
+			Connection.create(category_id: collection["category"], collection_id: collection["id"])
 		end
 
 
@@ -304,7 +311,10 @@ class ImportController < ApplicationController
 	end
 
 	def show
-		
+		@xml = File.read("public/catalog.xml")
+		@hash = Hash.from_xml(@xml)
+		@colletions = @hash["bau_catalog"]["groupProduct"]["collection_list"]["collection"]
+		@products  = @hash["bau_catalog"]["groupProduct"]["element_list"]["element"]
 	end
 
 end
