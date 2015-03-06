@@ -304,7 +304,7 @@ class ImportController < ApplicationController
 	end
 
 	def show
-		@categories_in_base = Category.find([1, 2, 3, 4])
+		
 	end
 
 end

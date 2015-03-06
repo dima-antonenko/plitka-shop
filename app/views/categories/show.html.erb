@@ -44,6 +44,21 @@
 												</figure>
 											</div>
 										<% end %>
+									<% else   @category.categories.each do |category| %>
+											<div class="product_item hit w_xs_full">
+												<figure class="r_corners photoframe type_2 t_align_c tr_all_hover shadow relative">
+													<!--product preview-->
+													<a href="#" class="d_block relative wrapper pp_wrap m_bottom_15">
+														<img src="/images/product_img_1.jpg" class="tr_all_hover" alt="">
+														<!--<span role="button" data-popup="#quick_view_product" class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none">Quick View</span> -->
+													</a>
+													<!--description and price of product-->
+													<figcaption class="m_bottom_10">
+														<h5 class="m_bottom_10"><%= link_to category.name, category_path(category) %></h5>	
+													</figcaption>
+												</figure>
+											</div>
+											<% end %>
 									<% end %>
 								</ul>
 							</nav>	
