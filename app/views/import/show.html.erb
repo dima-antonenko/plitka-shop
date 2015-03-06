@@ -1,0 +1,5 @@
+<% @categories_in_base.each do |category| %>
+	<% if category.collections.count < 1 %>
+		<%= category.categories.count %><br/>
+	<% end %>
+<% end %>

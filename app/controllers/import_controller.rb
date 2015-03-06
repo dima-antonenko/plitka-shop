@@ -158,7 +158,6 @@ class ImportController < ApplicationController
 
 		@colletions.each do |colletion|	
 			Collection.create(id: colletion["id"],
-							  category_id: 1,
 							  name: colletion["name"],
 							  description: " ", 
 							  interior_list: colletion["interior_list"].to_s,
@@ -166,6 +165,8 @@ class ImportController < ApplicationController
 							  country: colletion["country"],
 							  size: colletion["size"],
 							  meta_title: colletion["name"])
+
+			Connection.create(category_id: colletion["category"], collection_id: collection["id"])
 		end
 
 
@@ -174,19 +175,136 @@ class ImportController < ApplicationController
 		@collections_in_base.each do |collection|
 			
 			if collection.products.count > 0  
-				Collection.update(collection.id, :category_id => collection.products.first.category )
+				Collection.update(collection.id, :basic_category => collection.products.first.category )
+
+				collection.to_bathroom = collection.products.first.to_bathroom #для ванной
+				collection.to_kitchen = collection.products.first.to_kitchen #для кухни
+				collection.to_corridor = collection.products.first.to_corridor #для корридора
+				collection.to_living = collection.products.first.to_living #для гостинной
+				collection.to_fasad = collection.products.first.to_fasad #для фасада
+				collection.to_floor = collection.products.first.to_floor #для пола
+				collection.to_construction = collection.products.first.to_construction #строительная плитка
+				collection.to_public = collection.products.first.to_public #для общественных помещений
+				collection.save
+			end
+		end 
+
+		@collections_in_base.each do |collection|
+
+			if collection.basic_category != nil
+				if collection.basic_category == 1
+					if collection.to_bathroom == true
+						Connection.create(category_id: 7, collection_id: collection.id )
+					end
+					if collection.to_kitchen == true
+						Connection.create(category_id: 6, collection_id: collection.id )
+					end
+					if collection.to_corridor == true
+						Connection.create(category_id: 8, collection_id: collection.id )
+					end
+					if collection.to_living == true
+						Connection.create(category_id: 9, collection_id: collection.id )
+					end
+					if collection.to_fasad == true
+						Connection.create(category_id: 10, collection_id: collection.id )
+					end
+					if collection.to_floor == true
+						Connection.create(category_id: 11, collection_id: collection.id )
+					end
+					if collection.to_construction == true
+						Connection.create(category_id: 12, collection_id: collection.id )
+					end
+					if collection.to_public == true
+						Connection.create(category_id: 13, collection_id: collection.id )
+					end
+				end
+				if collection.basic_category == 2
+					if collection.to_bathroom == true
+						Connection.create(category_id: 14, collection_id: collection.id )
+					end
+					if collection.to_kitchen == true
+						Connection.create(category_id: 15, collection_id: collection.id )
+					end
+					if collection.to_corridor == true
+						Connection.create(category_id: 16, collection_id: collection.id )
+					end
+					if collection.to_living == true
+						Connection.create(category_id: 17, collection_id: collection.id )
+					end
+					if collection.to_fasad == true
+						Connection.create(category_id: 18, collection_id: collection.id )
+					end
+					if collection.to_floor == true
+						Connection.create(category_id: 19, collection_id: collection.id )
+					end
+					if collection.to_construction == true
+						Connection.create(category_id: 20, collection_id: collection.id )
+					end
+					if collection.to_public == true
+						Connection.create(category_id: 21, collection_id: collection.id )
+					end
+				end
+				if collection.basic_category == 3
+					if collection.to_bathroom == true
+						Connection.create(category_id: 22, collection_id: collection.id )
+					end
+					if collection.to_kitchen == true
+						Connection.create(category_id: 23, collection_id: collection.id )
+					end
+					if collection.to_corridor == true
+						Connection.create(category_id: 24, collection_id: collection.id )
+					end
+					if collection.to_living == true
+						Connection.create(category_id: 25, collection_id: collection.id )
+					end
+					if collection.to_fasad == true
+						Connection.create(category_id: 26, collection_id: collection.id )
+					end
+					if collection.to_floor == true
+						Connection.create(category_id: 27, collection_id: collection.id )
+					end
+					if collection.to_construction == true
+						Connection.create(category_id: 28, collection_id: collection.id )
+					end
+					if collection.to_public == true
+						Connection.create(category_id: 29, collection_id: collection.id )
+					end
+				end
+				if collection.basic_category == 4
+					if collection.to_bathroom == true
+						Connection.create(category_id: 30, collection_id: collection.id )
+					end
+					if collection.to_kitchen == true
+						Connection.create(category_id: 31, collection_id: collection.id )
+					end
+					if collection.to_corridor == true
+						Connection.create(category_id: 32, collection_id: collection.id )
+					end
+					if collection.to_living == true
+						Connection.create(category_id: 33, collection_id: collection.id )
+					end
+					if collection.to_fasad == true
+						Connection.create(category_id: 35, collection_id: collection.id )
+					end
+					if collection.to_floor == true
+						Connection.create(category_id: 34, collection_id: collection.id )
+					end
+					if collection.to_construction == true
+						Connection.create(category_id: 36, collection_id: collection.id )
+					end
+					if collection.to_public == true
+						Connection.create(category_id: 36, collection_id: collection.id )
+					end
+				end
 			end
 
  		end 
 
 
-
 	end
 
 	def show
-
-		
-
+		@categories_in_base = Category.all
 	end
 
 end

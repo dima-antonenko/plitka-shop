@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303181622) do
+ActiveRecord::Schema.define(version: 20150306013324) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20150303181622) do
     t.string   "meta_keywords"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "category_id"
   end
 
   create_table "collections", force: :cascade do |t|
-    t.integer  "category_id"
     t.string   "name"
     t.string   "description"
     t.string   "interior_list"
@@ -49,12 +49,22 @@ ActiveRecord::Schema.define(version: 20150303181622) do
     t.boolean  "to_floor"
     t.boolean  "to_construction"
     t.boolean  "to_public"
+    t.integer  "basic_category"
   end
 
-  add_index "collections", ["category_id"], name: "index_collections_on_category_id"
   add_index "collections", ["description"], name: "index_collections_on_description"
   add_index "collections", ["interior_list"], name: "index_collections_on_interior_list"
   add_index "collections", ["name"], name: "index_collections_on_name"
+
+  create_table "connections", force: :cascade do |t|
+    t.integer  "collection_id"
+    t.integer  "category_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "connections", ["category_id"], name: "index_connections_on_category_id"
+  add_index "connections", ["collection_id"], name: "index_connections_on_collection_id"
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "product_id"

@@ -25,23 +25,25 @@
 														<!--categories nav-->
 							<nav class="m_bottom_40">
 								<ul class="products_container category_grid clearfix m_bottom_15 isotope">
-									<% @category.collections.each do |collection| %>
-										<div class="product_item hit w_xs_full">
-											<figure class="r_corners photoframe type_2 t_align_c tr_all_hover shadow relative">
-												<!--product preview-->
-												<a href="#" class="d_block relative wrapper pp_wrap m_bottom_15">
-													<img src="/images/product_img_1.jpg" class="tr_all_hover" alt="">
-													<!--<span role="button" data-popup="#quick_view_product" class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none">Quick View</span> -->
-												</a>
-												<!--description and price of product-->
-												<figcaption class="m_bottom_10">
-													<h5 class="m_bottom_10"><%= link_to collection.name, category_collection_path(@category , collection) %></h5>	
-													<p class="f_left f_size_small d_block r_corners">Бренд: <b class="color_dark"><%= collection.brand %></b></p><br/>
-													<p class="f_left f_size_small d_block r_corners">Страна: <b class="color_dark"><%= collection.country %></b></p><br/>
-													<p class="f_left f_size_small d_block r_corners">Размер: <b class="color_dark"><%= collection.size %></b></p>
-												</figcaption>
-											</figure>
-										</div>
+									<% if  @category.collections.count > 0 %>
+										<% @category.collections.each do |collection| %>
+											<div class="product_item hit w_xs_full">
+												<figure class="r_corners photoframe type_2 t_align_c tr_all_hover shadow relative">
+													<!--product preview-->
+													<a href="#" class="d_block relative wrapper pp_wrap m_bottom_15">
+														<img src="/images/product_img_1.jpg" class="tr_all_hover" alt="">
+														<!--<span role="button" data-popup="#quick_view_product" class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none">Quick View</span> -->
+													</a>
+													<!--description and price of product-->
+													<figcaption class="m_bottom_10">
+														<h5 class="m_bottom_10"><%= link_to collection.name, category_collection_path(@category , collection) %></h5>	
+														<p class="f_left f_size_small d_block r_corners">Бренд: <b class="color_dark"><%= collection.brand %></b></p><br/>
+														<p class="f_left f_size_small d_block r_corners">Страна: <b class="color_dark"><%= collection.country %></b></p><br/>
+														<p class="f_left f_size_small d_block r_corners">Размер: <b class="color_dark"><%= collection.size %></b></p>
+													</figcaption>
+												</figure>
+											</div>
+										<% end %>
 									<% end %>
 								</ul>
 							</nav>	
