@@ -4,7 +4,8 @@ class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.json
   def index
-    @collections = Collection.all
+    #@collections = Collection.all
+    @collections = Collection.order(:name).page params[:page]
   end
 
   # GET /collections/1

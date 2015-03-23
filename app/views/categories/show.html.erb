@@ -46,6 +46,7 @@
 													</figcaption>
 												</figure>
 											</div>
+
 										<% end %>
 									<% else   @category.categories.each do |category| %>
 											<div class="product_item hit w_xs_full">
@@ -65,6 +66,7 @@
 									<% end %>
 								</ul>
 							</nav>	
+							 <%= paginate @collections %> 
 							<hr class="m_bottom_10 divider_type_3">
 							<div class="row clearfix m_bottom_15 m_xs_bottom_30">
 								<div class="col-lg-7 col-md-7 col-sm-8 m_xs_bottom_10">
