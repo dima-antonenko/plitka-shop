@@ -23,6 +23,7 @@ test:
   database: db/test.sqlite3
 
 production:
+  host: 62.109.13.57
   adapter: postgresql
   encoding: unicode
   pool: 5
