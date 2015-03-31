@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_admin', '~> 0.6.6'
 
 gem 'kaminari', '~> 0.16.3'
+gem 'therubyracer', '~> 0.12.1'
+gem 'execjs', '~> 2.4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
